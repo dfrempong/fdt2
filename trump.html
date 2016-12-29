@@ -1,0 +1,71 @@
+<html>
+
+<title> FUCK DONALD TRUMP </title>
+<link rel="stylesheet" href="websitestyle.css">
+
+
+<body style="background-color: #660000;">
+<center>
+
+<div id="par">
+<h2>FUCK DONALD TRUMP COUNTER: <a id="clicks">0</a></h2>
+
+  <button id="clickButton">FUCK DONALD TRUMP</button>
+</div>
+
+<div id="pic">
+<img src="http://i.imgur.com/jNJhRyt.png">
+</div>
+
+<div>
+ <a class="twitter-timeline"  href="https://twitter.com/hashtag/FuckTrump" data-widget-id="796619015967883264">#FuckTrump Tweets</a>
+            <script>!function(d,s,id){var
+  js,fjs=d.getElementsByTagName(s)[0],p=/^http:/.test(d.location)?'http':'https';if(!d.getElementById(id)){js=d.createElement(s);js.id=id;js.src=p+"://platform.twitter.com/widgets.js";fjs.parentNode.insertBefore(js,fjs);}}(document,"script","twitter-wjs");</script>
+  </div>
+
+
+
+<div class="video-container">
+         <iframe width="560" height="315" src="https://www.youtube.com/embed/RdgewCeLtrU?autoplay=1" frameborder="0" allowfullscreen></iframe>
+</div>
+
+</center>
+
+</body>
+
+
+<script>
+var clicks = 0;
+var xhttp;
+if (window.XMLHttpRequest) {
+    xhttp = new XMLHttpRequest();
+    } else {
+    // code for IE6, IE5
+    xhttp = new ActiveXObject("Microsoft.XMLHTTP");
+}
+function initiateClicks() {
+  xhttp.onreadystatechange = function() {
+    if (this.readyState == 4 && this.status == 200) {
+      var obtained = parseInt(this.responseText,10);
+      document.getElementById("clicks").innerHTML = obtained;
+    }
+  };
+  xhttp.open("POST", "count.txt", true);
+  xhttp.send();
+}
+function doClick() {
+  xhttp.onreadystatechange = function() {
+    if (this.readyState == 4 && this.status == 200) {
+      var obtained = parseInt(this.responseText,10);
+      document.getElementById("clicks").innerHTML = obtained;
+    }
+  };
+  xhttp.open("POST", "counter.php", true);
+  xhttp.send();
+}
+
+document.getElementById("clickButton").onclick = doClick;
+initiateClicks();
+</script>
+
+</html>
