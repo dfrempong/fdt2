@@ -1,6 +1,6 @@
 <?php
   	# operator
-  $numfile = fopen("count.txt","r");
+  $numfile = fopen("https://rawgit.com/dfrempong/fdt2/master/count.txt","r");
   $read = fscanf($numfile,"%f");
   $value = $read[0];
   fclose($numfile);
@@ -10,7 +10,7 @@
 
   function increase($v){
     $newV = $v+1;
-    $numfile = fopen("count.txt","w");
+    $numfile = fopen("https://rawgit.com/dfrempong/fdt2/master/count.txt","w");
     fwrite($numfile, $newV);
     fclose($numfile);
     return $newV;
